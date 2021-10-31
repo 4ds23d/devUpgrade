@@ -1,5 +1,7 @@
 package dev.upgrade;
 
+import java.util.List;
+
 public interface GearboxMode {
-    void changedCurrentRpm(Rpm currentRpm);
+    GearAction newRpm(Rpm currentRpm);
 }

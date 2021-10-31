@@ -8,7 +8,8 @@ public class SportMode implements GearboxMode {
     private final SportCharacteristics sportCharacteristics;
 
     @Override
-    public void changedCurrentRpm(Rpm currentRpm) {
+    public GearAction newRpm(Rpm currentRpm) {
+        throw new UnsupportedOperationException("BARKAS TODO    SportMode#12 ");
 
     }
 }

@@ -13,7 +13,7 @@ public class GearboxDriver {
 
     void handleGas() {
         var currentRpm = externalSystem.getCurrentRpm();
-        gearboxMode.changedCurrentRpm(currentRpm);
+        gearboxMode.newRpm(currentRpm);
 
     }
 }

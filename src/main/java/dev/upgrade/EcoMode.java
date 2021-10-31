@@ -5,10 +5,16 @@ import lombok.Data;
 
 @Data
 public class EcoMode implements GearboxMode {
-    private EcoCharacteristics ecoCharacteristics;
+    private final EcoCharacteristics ecoCharacteristics;
 
     @Override
-    public void changedCurrentRpm(Rpm currentRpm) {
+    public GearAction newRpm(Rpm currentRpm) {
+        if (currentRpm.isGreaterThan(ecoCharacteristics.getRiseGearWhileAccelerating())) {
+            return GearAction.riseGear();
+        } else if (currentRpm.isLowerThan(ecoCharacteristics.getReduceGearWhileAccelerating())) {
+            return GearAction.reduce();
+        }
 
+        return GearAction.nothing();
     }
 }
