@@ -4,7 +4,7 @@ plugins {
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
@@ -13,6 +13,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testCompile("org.junit.jupiter:junit-jupiter-params:5.6.0")
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.21.0'
     testCompileOnly 'org.projectlombok:lombok:1.18.22'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
