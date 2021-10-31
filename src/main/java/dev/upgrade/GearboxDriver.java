@@ -8,8 +8,12 @@ import lombok.AllArgsConstructor;
 public class GearboxDriver {
     private final ExternalSystemAcl externalSystem;
     private final GearboxAcl gearbox;
+    private final GearboxMode gearboxMode;
 
-    void handleGas(Rpm rpm) {
+
+    void handleGas() {
+        var currentRpm = externalSystem.getCurrentRpm();
+        gearboxMode.changedCurrentRpm(currentRpm);
 
     }
 }
