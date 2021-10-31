@@ -1,5 +1,8 @@
 package dev.upgrade;
 
+import lombok.Data;
+
+@Data
 public class Rpm {
     private final double value;
 
