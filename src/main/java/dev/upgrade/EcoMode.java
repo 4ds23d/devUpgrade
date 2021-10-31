@@ -8,7 +8,7 @@ public class EcoMode implements GearboxMode {
     private final EcoCharacteristics ecoCharacteristics;
 
     @Override
-    public GearAction newRpm(Rpm currentRpm) {
+    public GearAction handleNewRpm(Rpm currentRpm) {
         if (currentRpm.isGreaterThan(ecoCharacteristics.getRiseGearWhileAccelerating())) {
             return GearAction.riseGear();
         } else if (currentRpm.isLowerThan(ecoCharacteristics.getReduceGearWhileAccelerating())) {

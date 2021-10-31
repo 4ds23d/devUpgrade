@@ -8,7 +8,7 @@ public class ComfortMode implements GearboxMode {
     private final ComportCharacteristics characteristics;
 
     @Override
-    public GearAction newRpm(Rpm currentRpm) {
+    public GearAction handleNewRpm(Rpm currentRpm) {
         if (currentRpm.isGreaterThan(characteristics.getRiseGearWhileAccelerating())) {
             return GearAction.riseGear();
         } else if (currentRpm.isLowerThan(characteristics.getReduceGearWhileAccelerating())) {

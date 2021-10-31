@@ -38,7 +38,7 @@ class ComfortModeTest {
     @DisplayName("newRpm")
     void newRpm(Rpm rpm, GearAction expectedAction) {
         // when
-        var action = mode.newRpm(rpm);
+        var action = mode.handleNewRpm(rpm);
 
         // then
         assertThat(action).isEqualTo(expectedAction);
