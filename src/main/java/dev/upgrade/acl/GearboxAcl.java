@@ -35,7 +35,7 @@ public class GearboxAcl {
         }
 
         var currentGear = (Integer) gearbox.getCurrentGear();
-        if (currentGear > 0) {
+        if (currentGear > 1) {
             gearbox.setCurrentGear(currentGear - 1);
         }
     }
