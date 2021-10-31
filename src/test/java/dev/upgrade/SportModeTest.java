@@ -38,7 +38,7 @@ class SportModeTest {
     @DisplayName("newRpm")
     void newRpm(Rpm rpm, GearAction expectedAction) {
         // when
-        var action = mode.handleNewRpm(rpm);
+        var action = mode.handleNewRpm(rpm, new Threshold(0));
 
         // then
         assertThat(action).isEqualTo(expectedAction);

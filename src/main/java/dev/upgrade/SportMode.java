@@ -8,7 +8,7 @@ public class SportMode implements GearboxMode {
     private final SportCharacteristics characteristics;
 
     @Override
-    public GearAction handleNewRpm(Rpm currentRpm) {
+    public GearAction handleNewRpm(Rpm currentRpm, Threshold threshold) {
         if (currentRpm.isGreaterThan(characteristics.getRiseGearWhileAccelerating())) {
             return GearAction.riseGear();
         } else if (currentRpm.isLowerThan(characteristics.getReduceGearWhileSlowlyAccelerating())) {

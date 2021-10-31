@@ -38,7 +38,7 @@ class EcoModeTest {
     @DisplayName("newRpm")
     void newRpm(Rpm rpm, GearAction expectedAction) {
         // when
-        var action = ecoMode.handleNewRpm(rpm);
+        var action = ecoMode.handleNewRpm(rpm, new Threshold(0));
 
         // then
         assertThat(action).isEqualTo(expectedAction);
