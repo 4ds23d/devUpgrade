@@ -23,7 +23,7 @@ class GearboxAclTest {
         var gearboxAcl = withGearboxAcl();
 
         // when
-        gearboxAcl.downGear();
+        gearboxAcl.reduceGear();
 
         // then
         verify(gearbox, times(1)).setCurrentGear(1);
@@ -38,7 +38,7 @@ class GearboxAclTest {
         var gearboxAcl = withGearboxAcl();
 
         // when
-        gearboxAcl.downGear();
+        gearboxAcl.reduceGear();
 
         // then
         verify(gearbox, times(0)).setCurrentGear(anyInt());
@@ -54,7 +54,7 @@ class GearboxAclTest {
         var gearboxAcl = withGearboxAcl();
 
         // when
-        gearboxAcl.upGear();
+        gearboxAcl.riseGear();
 
         // then
         verify(gearbox, times(1)).setCurrentGear(2);
@@ -70,7 +70,7 @@ class GearboxAclTest {
         var gearboxAcl = withGearboxAcl();
 
         // when
-        gearboxAcl.upGear();
+        gearboxAcl.riseGear();
 
         // then
         verify(gearbox, times(0)).setCurrentGear(anyInt());

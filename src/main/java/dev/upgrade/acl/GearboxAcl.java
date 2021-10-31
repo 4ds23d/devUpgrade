@@ -29,7 +29,7 @@ public class GearboxAcl {
         }
     }
 
-    void downGear() {
+    public void reduceGear() {
         if (getState() != State.DRIVE) {
             return;
         }
@@ -40,7 +40,7 @@ public class GearboxAcl {
         }
     }
 
-    void upGear() {
+    public void riseGear() {
         if (getState() != State.DRIVE) {
             return;
         }

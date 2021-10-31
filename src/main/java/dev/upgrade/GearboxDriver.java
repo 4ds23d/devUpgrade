@@ -11,6 +11,15 @@ public class GearboxDriver {
     private final GearboxMode gearboxMode;
 
 
+    void reduceGear() {
+        gearbox.reduceGear();
+    }
+
+    void riseGear() {
+        gearbox.riseGear();
+    }
+
+
     void handleGas(Threshold threshold) {
         var currentRpm = externalSystem.getCurrentRpm();
         gearboxMode.handleNewRpm(currentRpm, threshold);
