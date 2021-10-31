@@ -1,8 +1,11 @@
 package dev.upgrade;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
 
 @Data
+@Getter(AccessLevel.NONE)
 public class Rpm {
     private final double value;
 

@@ -24,21 +24,21 @@ class SportModeTest {
 
     private static Stream<Arguments> dataNewRpm() {
         return Stream.of(
-                Arguments.of(new Rpm(5001), GearAction.riseGear()),
-                Arguments.of(new Rpm(4999), GearAction.nothing()),
-                Arguments.of(new Rpm(3000), GearAction.nothing()),
-                Arguments.of(new Rpm(1501), GearAction.nothing()),
-                Arguments.of(new Rpm(1499), GearAction.reduce()),
-                Arguments.of(new Rpm(0), GearAction.reduce())
+                Arguments.of(new Rpm(5001), new Threshold(0), GearAction.riseGear()),
+                Arguments.of(new Rpm(4999), new Threshold(0), GearAction.nothing()),
+                Arguments.of(new Rpm(3000), new Threshold(0), GearAction.nothing()),
+                Arguments.of(new Rpm(1501), new Threshold(0), GearAction.nothing()),
+                Arguments.of(new Rpm(1499), new Threshold(0), GearAction.reduce()),
+                Arguments.of(new Rpm(0), new Threshold(0), GearAction.reduce())
         );
     }
 
     @ParameterizedTest
     @MethodSource("dataNewRpm")
     @DisplayName("newRpm")
-    void newRpm(Rpm rpm, GearAction expectedAction) {
+    void newRpm(Rpm rpm, Threshold threshold, GearAction expectedAction) {
         // when
-        var action = mode.handleNewRpm(rpm, new Threshold(0));
+        var action = mode.handleNewRpm(rpm, threshold);
 
         // then
         assertThat(action).isEqualTo(expectedAction);
