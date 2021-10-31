@@ -5,11 +5,16 @@ import lombok.Data;
 
 @Data
 public class SportMode implements GearboxMode {
-    private final SportCharacteristics sportCharacteristics;
+    private final SportCharacteristics characteristics;
 
     @Override
     public GearAction newRpm(Rpm currentRpm) {
-        throw new UnsupportedOperationException("BARKAS TODO    SportMode#12 ");
+        if (currentRpm.isGreaterThan(characteristics.getRiseGearWhileAccelerating())) {
+            return GearAction.riseGear();
+        } else if (currentRpm.isLowerThan(characteristics.getReduceGearWhileSlowlyAccelerating())) {
+            return GearAction.reduce();
+        }
 
+        return GearAction.nothing();
     }
 }
