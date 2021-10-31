@@ -5,8 +5,12 @@ public class Rpm {
 
     public Rpm(double value) {
         if (value < 0) {
-            throw new IllegalArgumentException(String.format("Illegal rpm value %d", value));
+            throw new IllegalArgumentException(String.format("Illegal rpm value %f", value));
         }
         this.value = value;
+    }
+
+    public boolean isGreaterThan(Rpm other) {
+        return value > other.value;
     }
 }
