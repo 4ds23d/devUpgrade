@@ -1,3 +1,5 @@
+package dev.upgrade;
+
 public class Gearbox {
 
     private int maxDrive;

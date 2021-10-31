@@ -1,3 +1,5 @@
+package dev.upgrade;
+
 public class Lights {
 
     int position;
