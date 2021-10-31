@@ -18,15 +18,35 @@ class RpmTest {
                .doesNotThrowAnyException();
    }
 
-   @Test
-   @DisplayName("100RPM is greater than 99RPM")
-   void isGreaterThanA() {
-       // given
-       var rpm = new Rpm(100);
+    @Test
+    @DisplayName("199 RPM is lower than 200 RPM")
+    void isLowerThanA() {
+        // given
+        var rpm = new Rpm(199);
 
-       // when& then
-       assertThat(rpm.isGreaterThan(new Rpm(99))).isTrue();
-   }
+        // when& then
+        assertThat(rpm.isLowerThan(new Rpm(200))).isTrue();
+    }
+
+    @Test
+    @DisplayName("200 RPM is not lower than 199 RPM")
+    void isLowerThanB() {
+        // given
+        var rpm = new Rpm(200);
+
+        // when& then
+        assertThat(rpm.isLowerThan(new Rpm(199))).isFalse();
+    }
+
+    @Test
+    @DisplayName("100RPM is greater than 99RPM")
+    void isGreaterThanA() {
+        // given
+        var rpm = new Rpm(100);
+
+        // when& then
+        assertThat(rpm.isGreaterThan(new Rpm(99))).isTrue();
+    }
 
     @Test
     @DisplayName("99RPM is not greater than 100RPM")

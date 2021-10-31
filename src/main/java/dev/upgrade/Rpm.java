@@ -13,4 +13,8 @@ public class Rpm {
     public boolean isGreaterThan(Rpm other) {
         return value > other.value;
     }
+
+    public boolean isLowerThan(Rpm other) {
+        return value < other.value;
+    }
 }
