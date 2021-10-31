@@ -1,9 +1,7 @@
 package dev.upgrade;
 
 import dev.upgrade.acl.ComportCharacteristics;
-import lombok.Data;
 
-@Data
 public class ComfortMode implements GearboxMode {
     private final ComportCharacteristics characteristics;
     private final Kickdown kickdown;

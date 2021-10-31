@@ -12,6 +12,10 @@ public class GearAction {
         REDUCE
     }
 
+    public static GearAction doubleReduce() {
+        return new GearAction(List.of(Type.REDUCE, Type.REDUCE));
+    }
+
     public static GearAction reduce() {
         return new GearAction(List.of(Type.REDUCE));
     }

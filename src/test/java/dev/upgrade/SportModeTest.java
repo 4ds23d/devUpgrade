@@ -29,7 +29,13 @@ class SportModeTest {
                 Arguments.of(new Rpm(3000), new Threshold(0), GearAction.nothing()),
                 Arguments.of(new Rpm(1501), new Threshold(0), GearAction.nothing()),
                 Arguments.of(new Rpm(1499), new Threshold(0), GearAction.reduce()),
-                Arguments.of(new Rpm(0), new Threshold(0), GearAction.reduce())
+                Arguments.of(new Rpm(0), new Threshold(0), GearAction.reduce()),
+
+                Arguments.of(new Rpm(3000), new Threshold(0.49), GearAction.nothing()),
+                Arguments.of(new Rpm(3000), new Threshold(0.51), GearAction.reduce()),
+                Arguments.of(new Rpm(3000), new Threshold(0.69), GearAction.reduce()),
+                Arguments.of(new Rpm(3000), new Threshold(0.71), GearAction.doubleReduce()),
+                Arguments.of(new Rpm(3000), new Threshold(0.9), GearAction.doubleReduce())
         );
     }
 

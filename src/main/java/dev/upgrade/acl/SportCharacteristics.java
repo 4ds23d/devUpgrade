@@ -7,9 +7,9 @@ import lombok.Data;
 @Data
 public class SportCharacteristics {
     private final Rpm reduceGearWhileSlowlyAccelerating;
-    private final Threshold thresholdSlowlyAccelerating;
+    private final Threshold thresholdLightKickdown;
     private final Rpm riseGearWhileAccelerating;
-    private final Threshold thresholdSlowlyKickdown;
+    private final Threshold thresholdHeavyickdown;
     private final Rpm reduceGearWhileSlowlyKickdown;
     private final Rpm reduceGearWhileKickdown;
     private final Rpm reduceGearWhileBreaking;
