@@ -1,4 +1,4 @@
-package dev.upgrade;
+package dev.upgrade.acl;
 
 public class Lights {
 
