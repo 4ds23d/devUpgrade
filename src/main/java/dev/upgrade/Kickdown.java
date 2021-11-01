@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Data
 @Getter(AccessLevel.NONE)
-public class Kickdown {
+class Kickdown {
     private final Threshold kickdownThreshold;
 
     public boolean isKickdown(Threshold threshold) {

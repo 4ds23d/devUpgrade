@@ -1,25 +1,25 @@
 package dev.upgrade;
 
+import dev.upgrade.acl.Characteristics;
 import dev.upgrade.acl.ExternalSystemAcl;
 import dev.upgrade.acl.GearboxAcl;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class GearboxDriver {
+    private final GearboxModeFactory modeFactory = new GearboxModeFactory(new Characteristics());
+
     private final ExternalSystemAcl externalSystem;
     private final GearboxAcl gearbox;
-    private final GearboxModeFactory modeFactory;
 
     private GearboxModeFactory.Mode mode = GearboxModeFactory.Mode.ECO;
     private GearboxModeFactory.AggressiveMode aggressiveMode = GearboxModeFactory.AggressiveMode.LV1;
     private GearboxMode gearboxMode;
 
-    public GearboxDriver(ExternalSystemAcl externalSystem, GearboxAcl gearbox, GearboxModeFactory modeFactory) {
+    public GearboxDriver(ExternalSystemAcl externalSystem, GearboxAcl gearbox) {
         this.externalSystem = externalSystem;
         this.gearbox = gearbox;
-        this.modeFactory = modeFactory;
 
-        changeToEcoMode();
     }
 
     void changeToAggressiveModeLv1() {

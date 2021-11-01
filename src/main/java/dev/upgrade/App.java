@@ -3,12 +3,18 @@
  */
 package dev.upgrade;
 
+import dev.upgrade.acl.ExternalSystemAcl;
+import dev.upgrade.acl.Gearbox;
+import dev.upgrade.acl.GearboxAcl;
+
 public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        var gearbox = new Gearbox();
+        gearbox.setGearBoxCurrentParams(new Integer[] {1, 1});
+        gearbox.setMaxDrive(6);
+
+        var driver = new GearboxDriver(new ExternalSystemAcl(), new GearboxAcl(gearbox));
+        driver.riseGear();
     }
 }
