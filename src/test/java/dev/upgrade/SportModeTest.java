@@ -14,12 +14,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class SportModeTest {
 
-    SportMode mode;
+    GearboxMode mode;
 
     @BeforeEach
     void setUp() {
-        var characteristics = new Characteristics();
-        this.mode = new SportMode(characteristics.getSportCharacteristics());
+        var factory = new GearboxModeFactory(new Characteristics());
+        this.mode = factory.buildGearbox(GearboxModeFactory.Mode.SPORT);
     }
 
     private static Stream<Arguments> dataNewRpm() {

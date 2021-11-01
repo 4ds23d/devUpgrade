@@ -14,12 +14,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class EcoModeTest {
 
-    EcoMode ecoMode;
+    GearboxMode ecoMode;
 
     @BeforeEach
     void setUp() {
-        var characteristics = new Characteristics();
-        this.ecoMode = new EcoMode(characteristics.getEcoCharacteristics());
+        var factory = new GearboxModeFactory(new Characteristics());
+        this.ecoMode = factory.buildGearbox(GearboxModeFactory.Mode.ECO);
     }
 
     private static Stream<Arguments> dataNewRpm() {
