@@ -1,12 +1,12 @@
 package dev.upgrade;
 
-import dev.upgrade.acl.ComportCharacteristics;
+import dev.upgrade.acl.ComfortCharacteristics;
 
 public class ComfortMode implements GearboxMode {
     private final Kickdown kickdown;
     private final RpmRange rpmRange;
 
-    public ComfortMode(ComportCharacteristics characteristics) {
+    public ComfortMode(ComfortCharacteristics characteristics) {
         this.rpmRange = new RpmRange(characteristics.getReduceGearWhileAccelerating(), characteristics.getRiseGearWhileAccelerating());
         this.kickdown = new Kickdown(characteristics.getThresholdSoThatIsNoKickdown());
     }

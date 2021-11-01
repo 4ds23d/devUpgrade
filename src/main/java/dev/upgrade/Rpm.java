@@ -23,4 +23,8 @@ public class Rpm {
     public boolean isLowerThan(Rpm other) {
         return value < other.value;
     }
+
+    public Rpm multiplyByFactor(RpmFactor factor) {
+        return new Rpm(value * factor.getFactor());
+    }
 }

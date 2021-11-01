@@ -9,19 +9,16 @@ import lombok.With;
 
 @Data
 @With(value = AccessLevel.PRIVATE)
-public class SportCharacteristics {
-    private final Rpm reduceGearWhileSlowlyAccelerating;
-    private final Threshold thresholdLightKickdown;
+public class ComfortCharacteristics {
+    private final Rpm reduceGearWhileAccelerating;
+    private final Threshold thresholdSoThatIsNoKickdown;
     private final Rpm riseGearWhileAccelerating;
-    private final Threshold thresholdHeavyKickdown;
-    private final Rpm reduceGearWhileSlowlyKickdown;
     private final Rpm reduceGearWhileKickdown;
     private final Rpm reduceGearWhileBreaking;
 
-    public SportCharacteristics multiplyByFactor(RpmFactor rpmFactor) {
-        return withReduceGearWhileSlowlyAccelerating(reduceGearWhileSlowlyAccelerating.multiplyByFactor(rpmFactor))
+    public ComfortCharacteristics multiplyByFactor(RpmFactor rpmFactor) {
+        return withReduceGearWhileAccelerating(reduceGearWhileAccelerating.multiplyByFactor(rpmFactor))
                 .withRiseGearWhileAccelerating(riseGearWhileAccelerating.multiplyByFactor(rpmFactor))
-                .withReduceGearWhileSlowlyKickdown(reduceGearWhileSlowlyKickdown.multiplyByFactor(rpmFactor))
                 .withReduceGearWhileKickdown(reduceGearWhileKickdown.multiplyByFactor(rpmFactor))
                 .withReduceGearWhileBreaking(reduceGearWhileBreaking.multiplyByFactor(rpmFactor));
     }

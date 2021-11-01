@@ -10,6 +10,8 @@ public class GearboxDriver {
     private final GearboxAcl gearbox;
     private final GearboxModeFactory modeFactory;
 
+    private GearboxModeFactory.Mode mode = GearboxModeFactory.Mode.ECO;
+    private GearboxModeFactory.AggressiveMode aggressiveMode = GearboxModeFactory.AggressiveMode.LV1;
     private GearboxMode gearboxMode;
 
     public GearboxDriver(ExternalSystemAcl externalSystem, GearboxAcl gearbox, GearboxModeFactory modeFactory) {
@@ -20,16 +22,34 @@ public class GearboxDriver {
         changeToEcoMode();
     }
 
+    void changeToAggressiveModeLv1() {
+        aggressiveMode = GearboxModeFactory.AggressiveMode.LV1;
+        buildGearboxMode();
+    }
+
+    void changeToAggressiveModeLv2() {
+        aggressiveMode = GearboxModeFactory.AggressiveMode.LV2;
+        buildGearboxMode();
+    }
+
+    void changeToAggressiveModeLv3() {
+        aggressiveMode = GearboxModeFactory.AggressiveMode.LV3;
+        buildGearboxMode();
+    }
+
     void changeToSportMode() {
-        gearboxMode = modeFactory.buildGearbox(GearboxModeFactory.Mode.SPORT);
+        mode = GearboxModeFactory.Mode.SPORT;
+        buildGearboxMode();
     }
 
     void changeToEcoMode() {
-        gearboxMode = modeFactory.buildGearbox(GearboxModeFactory.Mode.ECO);
+        mode = GearboxModeFactory.Mode.ECO;
+        buildGearboxMode();
     }
 
     void changeToComfort() {
-        gearboxMode = modeFactory.buildGearbox(GearboxModeFactory.Mode.COMFORT);
+        mode = GearboxModeFactory.Mode.COMFORT;
+        buildGearboxMode();
     }
 
     void reduceGear() {
@@ -44,5 +64,9 @@ public class GearboxDriver {
         var currentRpm = externalSystem.getCurrentRpm();
         var actions = gearboxMode.handleNewRpm(currentRpm, threshold);
         actions.apply(gearbox);
+    }
+
+    private void buildGearboxMode() {
+        gearboxMode = modeFactory.buildGearbox(mode, aggressiveMode);
     }
 }

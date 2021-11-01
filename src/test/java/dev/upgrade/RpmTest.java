@@ -58,4 +58,18 @@ class RpmTest {
         assertThat(rpm.isGreaterThan(new Rpm(100))).isFalse();
     }
 
+    @Test
+    @DisplayName("multiply by factor")
+    void multiplyByFactor() {
+        // given
+        var rpmFactor = new RpmFactor(1.5);
+        var rpm = new Rpm(2000);
+
+        // when
+        var multiplyRpm = rpm.multiplyByFactor(rpmFactor);
+
+        // then
+        assertThat(multiplyRpm).isEqualTo(new Rpm(2000 * 1.5));
+    }
+
 }

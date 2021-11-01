@@ -2,7 +2,6 @@ package dev.upgrade;
 
 import java.util.stream.Stream;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -13,16 +12,9 @@ import dev.upgrade.acl.Characteristics;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class EcoModeTest {
+    private GearboxModeFactory factory = new GearboxModeFactory(new Characteristics());
 
-    GearboxMode ecoMode;
-
-    @BeforeEach
-    void setUp() {
-        var factory = new GearboxModeFactory(new Characteristics());
-        this.ecoMode = factory.buildGearbox(GearboxModeFactory.Mode.ECO);
-    }
-
-    private static Stream<Arguments> dataNewRpm() {
+    private static Stream<Arguments> dataNewRpmLvl1() {
         return Stream.of(
                 Arguments.of(new Rpm(2001), GearAction.riseGear()),
                 Arguments.of(new Rpm(1999), GearAction.nothing()),
@@ -34,11 +26,39 @@ class EcoModeTest {
     }
 
     @ParameterizedTest
-    @MethodSource("dataNewRpm")
-    @DisplayName("newRpm")
-    void newRpm(Rpm rpm, GearAction expectedAction) {
+    @MethodSource("dataNewRpmLvl1")
+    @DisplayName("newRpm lvl1")
+    void newRpmLvl1(Rpm rpm, GearAction expectedAction) {
+        // given
+        var mode = factory.buildGearbox(GearboxModeFactory.Mode.ECO, GearboxModeFactory.AggressiveMode.LV1);
+
         // when
-        var action = ecoMode.handleNewRpm(rpm, new Threshold(0));
+        var action = mode.handleNewRpm(rpm, new Threshold(0));
+
+        // then
+        assertThat(action).isEqualTo(expectedAction);
+    }
+
+    private static Stream<Arguments> dataNewRpmLvl2() {
+        return Stream.of(
+                Arguments.of(new Rpm(2601), GearAction.riseGear()),
+                Arguments.of(new Rpm(2600), GearAction.nothing()),
+                Arguments.of(new Rpm(1300), GearAction.nothing()),
+                Arguments.of(new Rpm(1299), GearAction.reduce()),
+                Arguments.of(new Rpm(11000), GearAction.riseGear()),
+                Arguments.of(new Rpm(0), GearAction.reduce())
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("dataNewRpmLvl2")
+    @DisplayName("newRpm lvl2")
+    void newRpmLvl2(Rpm rpm, GearAction expectedAction) {
+        // given
+        var mode = factory.buildGearbox(GearboxModeFactory.Mode.ECO, GearboxModeFactory.AggressiveMode.LV2);
+
+        // when
+        var action = mode.handleNewRpm(rpm, new Threshold(0));
 
         // then
         assertThat(action).isEqualTo(expectedAction);

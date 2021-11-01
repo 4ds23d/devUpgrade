@@ -9,7 +9,7 @@ public class SportMode implements GearboxMode {
 
     public SportMode(SportCharacteristics characteristics) {
         this.lightKickdown = new Kickdown(characteristics.getThresholdLightKickdown());
-        this.heavyKickdown = new Kickdown(characteristics.getThresholdHeavyickdown());
+        this.heavyKickdown = new Kickdown(characteristics.getThresholdHeavyKickdown());
         this.rpmRange = new RpmRange(characteristics.getReduceGearWhileSlowlyAccelerating(), characteristics.getRiseGearWhileAccelerating());
     }
 

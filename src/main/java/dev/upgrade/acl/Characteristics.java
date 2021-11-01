@@ -29,7 +29,7 @@ public class Characteristics {
      */
 
     private final EcoCharacteristics ecoCharacteristics;
-    private final ComportCharacteristics comportCharacteristics;
+    private final ComfortCharacteristics comfortCharacteristics;
     private final SportCharacteristics sportCharacteristics;
 
     public Characteristics() {
@@ -39,7 +39,7 @@ public class Characteristics {
                 new Rpm((double) characteristics[12])
         );
 
-        comportCharacteristics = new ComportCharacteristics(
+        comfortCharacteristics = new ComfortCharacteristics(
                 new Rpm((double) characteristics[2]),
                 new Threshold((double) characteristics[3]),
                 new Rpm((double) characteristics[4]),
@@ -62,8 +62,8 @@ public class Characteristics {
         return ecoCharacteristics;
     }
 
-    public ComportCharacteristics getComportCharacteristics() {
-        return comportCharacteristics;
+    public ComfortCharacteristics getComportCharacteristics() {
+        return comfortCharacteristics;
     }
 
     public SportCharacteristics getSportCharacteristics() {
