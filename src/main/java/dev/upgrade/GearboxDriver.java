@@ -10,7 +10,6 @@ public class GearboxDriver {
     private final GearboxAcl gearbox;
     private final GearboxMode gearboxMode;
 
-
     void reduceGear() {
         gearbox.reduceGear();
     }
@@ -19,10 +18,9 @@ public class GearboxDriver {
         gearbox.riseGear();
     }
 
-
     void handleGas(Threshold threshold) {
         var currentRpm = externalSystem.getCurrentRpm();
-        gearboxMode.handleNewRpm(currentRpm, threshold);
-
+        var actions = gearboxMode.handleNewRpm(currentRpm, threshold);
+        actions.apply(gearbox);
     }
 }
