@@ -8,7 +8,29 @@ import lombok.AllArgsConstructor;
 public class GearboxDriver {
     private final ExternalSystemAcl externalSystem;
     private final GearboxAcl gearbox;
-    private final GearboxMode gearboxMode;
+    private final GearboxModeFactory modeFactory;
+
+    private GearboxMode gearboxMode;
+
+    public GearboxDriver(ExternalSystemAcl externalSystem, GearboxAcl gearbox, GearboxModeFactory modeFactory) {
+        this.externalSystem = externalSystem;
+        this.gearbox = gearbox;
+        this.modeFactory = modeFactory;
+
+        changeToEcoMode();
+    }
+
+    void changeToSportMode() {
+        gearboxMode = modeFactory.buildGearbox(GearboxModeFactory.Mode.SPORT);
+    }
+
+    void changeToEcoMode() {
+        gearboxMode = modeFactory.buildGearbox(GearboxModeFactory.Mode.ECO);
+    }
+
+    void changeToComfort() {
+        gearboxMode = modeFactory.buildGearbox(GearboxModeFactory.Mode.COMFORT);
+    }
 
     void reduceGear() {
         gearbox.reduceGear();
