@@ -1,18 +1,19 @@
 package dev.upgrade;
 
 import dev.upgrade.acl.EcoCharacteristics;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
-@AllArgsConstructor
 public class EcoMode implements GearboxMode {
-    private final EcoCharacteristics ecoCharacteristics;
+    private final RpmRange rpmRange;
+
+    public EcoMode(EcoCharacteristics ecoCharacteristics) {
+        this.rpmRange = new RpmRange(ecoCharacteristics.getReduceGearWhileAccelerating(), ecoCharacteristics.getRiseGearWhileAccelerating());
+    }
 
     @Override
     public GearAction handleNewRpm(Rpm currentRpm, Threshold threshold) {
-        if (currentRpm.isGreaterThan(ecoCharacteristics.getRiseGearWhileAccelerating())) {
+        if (rpmRange.isAbove(currentRpm)) {
             return GearAction.riseGear();
-        } else if (currentRpm.isLowerThan(ecoCharacteristics.getReduceGearWhileAccelerating())) {
+        } else if (rpmRange.isBelow(currentRpm)) {
             return GearAction.reduce();
         }
 

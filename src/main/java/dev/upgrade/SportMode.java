@@ -3,15 +3,14 @@ package dev.upgrade;
 import dev.upgrade.acl.SportCharacteristics;
 
 public class SportMode implements GearboxMode {
-    private final SportCharacteristics characteristics;
     private final Kickdown lightKickdown;
     private final Kickdown heavyKickdown;
+    private final RpmRange rpmRange;
 
     public SportMode(SportCharacteristics characteristics) {
-        this.characteristics = characteristics;
         this.lightKickdown = new Kickdown(characteristics.getThresholdLightKickdown());
         this.heavyKickdown = new Kickdown(characteristics.getThresholdHeavyickdown());
-
+        this.rpmRange = new RpmRange(characteristics.getReduceGearWhileSlowlyAccelerating(), characteristics.getRiseGearWhileAccelerating());
     }
 
     @Override
@@ -21,9 +20,9 @@ public class SportMode implements GearboxMode {
         } else if (lightKickdown.isKickdown(threshold)) {
             return GearAction.reduce();
         } else {
-            if (currentRpm.isGreaterThan(characteristics.getRiseGearWhileAccelerating())) {
+            if (rpmRange.isAbove(currentRpm)) {
                 return GearAction.riseGear();
-            } else if (currentRpm.isLowerThan(characteristics.getReduceGearWhileSlowlyAccelerating())) {
+            } else if (rpmRange.isBelow(currentRpm)) {
                 return GearAction.reduce();
             }
         }
