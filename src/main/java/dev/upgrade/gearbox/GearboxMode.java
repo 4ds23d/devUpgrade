@@ -1,5 +1,5 @@
-package dev.upgrade;
+package dev.upgrade.gearbox;
 
-public interface GearboxMode {
+interface GearboxMode {
     GearAction handleNewRpm(Rpm currentRpm, Threshold threshold);
 }

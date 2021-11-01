@@ -1,8 +1,8 @@
-package dev.upgrade.acl;
+package dev.upgrade.characteristics;
 
-import dev.upgrade.Rpm;
-import dev.upgrade.RpmFactor;
-import dev.upgrade.Threshold;
+import dev.upgrade.gearbox.Rpm;
+import dev.upgrade.gearbox.RpmFactor;
+import dev.upgrade.gearbox.Threshold;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.With;

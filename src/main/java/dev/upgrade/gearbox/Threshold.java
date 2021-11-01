@@ -1,4 +1,4 @@
-package dev.upgrade;
+package dev.upgrade.gearbox;
 
 import lombok.AccessLevel;
 import lombok.Data;

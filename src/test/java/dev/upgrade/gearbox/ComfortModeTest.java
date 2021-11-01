@@ -1,4 +1,4 @@
-package dev.upgrade;
+package dev.upgrade.gearbox;
 
 import java.util.stream.Stream;
 
@@ -8,7 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import dev.upgrade.acl.Characteristics;
+import dev.upgrade.characteristics.Characteristics;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

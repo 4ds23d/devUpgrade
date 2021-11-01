@@ -1,11 +1,11 @@
-package dev.upgrade.acl;
+package dev.upgrade.characteristics;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import dev.upgrade.Rpm;
-import dev.upgrade.RpmFactor;
-import dev.upgrade.Threshold;
+import dev.upgrade.gearbox.Rpm;
+import dev.upgrade.gearbox.RpmFactor;
+import dev.upgrade.gearbox.Threshold;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,6 +22,6 @@ class ComfortCharacteristicsTest {
         var newComfort = comfort.multiplyByFactor(factor);
 
         // then
-        assertThat(newComfort).isEqualTo(new ComfortCharacteristics(new Rpm(1 * 3), new Threshold(2), new Rpm(3 * 3), new Rpm(4 * 3), new Rpm(5 * 3)));
+        assertThat(newComfort).isEqualTo(new ComfortCharacteristics(new Rpm(3), new Threshold(2), new Rpm(3 * 3), new Rpm(4 * 3), new Rpm(5 * 3)));
     }
 }

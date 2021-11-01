@@ -1,4 +1,4 @@
-package dev.upgrade;
+package dev.upgrade.gearbox;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

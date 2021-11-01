@@ -1,17 +1,17 @@
-package dev.upgrade;
+package dev.upgrade.gearbox;
 
-import dev.upgrade.acl.Characteristics;
-import lombok.Data;
+import dev.upgrade.characteristics.Characteristics;
+import lombok.AllArgsConstructor;
 
-@Data
-public class GearboxModeFactory {
+@AllArgsConstructor
+class GearboxModeFactory {
     private final Characteristics characteristics;
 
     enum Mode {
         ECO,
         COMFORT,
         SPORT
-    };
+    }
 
     enum AggressiveMode {
         LV1,

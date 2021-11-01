@@ -1,4 +1,4 @@
-package dev.upgrade;
+package dev.upgrade.gearbox;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

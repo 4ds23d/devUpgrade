@@ -1,11 +1,11 @@
-package dev.upgrade.acl;
+package dev.upgrade.characteristics;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import dev.upgrade.Rpm;
-import dev.upgrade.RpmFactor;
-import dev.upgrade.Threshold;
+import dev.upgrade.gearbox.Rpm;
+import dev.upgrade.gearbox.RpmFactor;
+import dev.upgrade.gearbox.Threshold;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,6 +22,6 @@ class SportCharacteristicsTest {
         var newCharacteristics = sportCharacteristics.multiplyByFactor(factor);
 
         // then
-        assertThat(newCharacteristics).isEqualTo(new SportCharacteristics(new Rpm(1 * 4), new Threshold(2), new Rpm(3 * 4), new Threshold(4), new Rpm(5 * 4), new Rpm(6 * 4), new Rpm(7 * 4)));
+        assertThat(newCharacteristics).isEqualTo(new SportCharacteristics(new Rpm(4), new Threshold(2), new Rpm(3 * 4), new Threshold(4), new Rpm(5 * 4), new Rpm(6 * 4), new Rpm(7 * 4)));
     }
 }

@@ -1,10 +1,10 @@
-package dev.upgrade.acl;
+package dev.upgrade.characteristics;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import dev.upgrade.Rpm;
-import dev.upgrade.RpmFactor;
+import dev.upgrade.gearbox.Rpm;
+import dev.upgrade.gearbox.RpmFactor;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,6 +21,6 @@ class EcoCharacteristicsTest {
         var newCharacteristics = characteristics.multiplyByFactor(factor);
 
         // then
-        assertThat(newCharacteristics).isEqualTo(new EcoCharacteristics(new Rpm(1 * 3), new Rpm(2 * 3), new Rpm(3 * 3)));
+        assertThat(newCharacteristics).isEqualTo(new EcoCharacteristics(new Rpm(3), new Rpm(2 * 3), new Rpm(3 * 3)));
     }
 }

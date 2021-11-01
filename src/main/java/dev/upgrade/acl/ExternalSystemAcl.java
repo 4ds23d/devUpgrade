@@ -1,6 +1,6 @@
 package dev.upgrade.acl;
 
-import dev.upgrade.Rpm;
+import dev.upgrade.gearbox.Rpm;
 import lombok.Data;
 
 @Data

@@ -1,4 +1,4 @@
-package dev.upgrade;
+package dev.upgrade.gearbox;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -9,7 +9,7 @@ import lombok.Getter;
 class Kickdown {
     private final Threshold kickdownThreshold;
 
-    public boolean isKickdown(Threshold threshold) {
+    boolean isKickdown(Threshold threshold) {
         return threshold.isGreaterThan(kickdownThreshold);
     }
 }

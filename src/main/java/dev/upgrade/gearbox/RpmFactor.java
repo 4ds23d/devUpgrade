@@ -1,10 +1,9 @@
-package dev.upgrade;
+package dev.upgrade.gearbox;
 
 import lombok.Data;
 
 @Data
-public
-class RpmFactor {
+public class RpmFactor {
     private final double factor;
 
     public RpmFactor(double factor) {

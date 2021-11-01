@@ -1,4 +1,4 @@
-package dev.upgrade;
+package dev.upgrade.gearbox;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import dev.upgrade.acl.GearboxAcl;
 import lombok.Data;
 
 @Data
-public class GearAction {
+class GearAction {
     private final List<Type> actions;
     enum Type {
         RISE,
@@ -26,19 +26,19 @@ public class GearAction {
         });
     }
 
-    public static GearAction doubleReduce() {
+    static GearAction doubleReduce() {
         return new GearAction(List.of(Type.REDUCE, Type.REDUCE));
     }
 
-    public static GearAction reduce() {
+    static GearAction reduce() {
         return new GearAction(List.of(Type.REDUCE));
     }
 
-    public static GearAction riseGear() {
+    static GearAction riseGear() {
         return new GearAction(List.of(Type.RISE));
     }
 
-    public static GearAction nothing() {
+    static GearAction nothing() {
         return new GearAction(List.of());
     }
 }

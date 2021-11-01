@@ -1,7 +1,7 @@
-package dev.upgrade.acl;
+package dev.upgrade.characteristics;
 
-import dev.upgrade.Rpm;
-import dev.upgrade.Threshold;
+import dev.upgrade.gearbox.Rpm;
+import dev.upgrade.gearbox.Threshold;
 
 public class Characteristics {
     private Object[] characteristics = new Object[]{2000d, 1000d, 1000d, 0.5d, 2500d, 4500d, 1500d, 0.5d, 5000d, 0.7d, 5000d, 5000d, 1500d, 2000d, 3000d, 6500d, 14d};
@@ -28,35 +28,27 @@ public class Characteristics {
             19 - tryb HIDDEN MODE - kiedy redukować bieg przy hamowaniu w hidden mode (chyba)
      */
 
-    private final EcoCharacteristics ecoCharacteristics;
-    private final ComfortCharacteristics comfortCharacteristics;
-    private final SportCharacteristics sportCharacteristics;
-
-    public Characteristics() {
-        ecoCharacteristics = new EcoCharacteristics(
-                new Rpm((double) characteristics[0]),
-                new Rpm((double) characteristics[1]),
-                new Rpm((double) characteristics[12])
-        );
-
-        comfortCharacteristics = new ComfortCharacteristics(
-                new Rpm((double) characteristics[2]),
-                new Threshold((double) characteristics[3]),
-                new Rpm((double) characteristics[4]),
-                new Rpm((double) characteristics[5]),
-                new Rpm((double) characteristics[13])
-        );
-
-        sportCharacteristics = new SportCharacteristics(
-                new Rpm((double) characteristics[6]),
-                new Threshold((double) characteristics[7]),
-                new Rpm((double) characteristics[8]),
-                new Threshold((double) characteristics[9]),
-                new Rpm((double) characteristics[10]),
-                new Rpm((double) characteristics[11]),
-                new Rpm((double) characteristics[14])
-        );
-    }
+    private final EcoCharacteristics ecoCharacteristics = new EcoCharacteristics(
+            new Rpm((double) characteristics[0]),
+            new Rpm((double) characteristics[1]),
+            new Rpm((double) characteristics[12])
+    );
+    private final ComfortCharacteristics comfortCharacteristics = new ComfortCharacteristics(
+            new Rpm((double) characteristics[2]),
+            new Threshold((double) characteristics[3]),
+            new Rpm((double) characteristics[4]),
+            new Rpm((double) characteristics[5]),
+            new Rpm((double) characteristics[13])
+    );
+    private final SportCharacteristics sportCharacteristics = new SportCharacteristics(
+            new Rpm((double) characteristics[6]),
+            new Threshold((double) characteristics[7]),
+            new Rpm((double) characteristics[8]),
+            new Threshold((double) characteristics[9]),
+            new Rpm((double) characteristics[10]),
+            new Rpm((double) characteristics[11]),
+            new Rpm((double) characteristics[14])
+    );
 
     public EcoCharacteristics getEcoCharacteristics() {
         return ecoCharacteristics;

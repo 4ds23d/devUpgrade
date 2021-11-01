@@ -1,8 +1,8 @@
-package dev.upgrade;
+package dev.upgrade.gearbox;
 
-import dev.upgrade.acl.Characteristics;
 import dev.upgrade.acl.ExternalSystemAcl;
 import dev.upgrade.acl.GearboxAcl;
+import dev.upgrade.characteristics.Characteristics;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -22,45 +22,45 @@ public class GearboxDriver {
 
     }
 
-    void changeToAggressiveModeLv1() {
+    public void changeToAggressiveModeLv1() {
         aggressiveMode = GearboxModeFactory.AggressiveMode.LV1;
         buildGearboxMode();
     }
 
-    void changeToAggressiveModeLv2() {
+    public void changeToAggressiveModeLv2() {
         aggressiveMode = GearboxModeFactory.AggressiveMode.LV2;
         buildGearboxMode();
     }
 
-    void changeToAggressiveModeLv3() {
+    public void changeToAggressiveModeLv3() {
         aggressiveMode = GearboxModeFactory.AggressiveMode.LV3;
         buildGearboxMode();
     }
 
-    void changeToSportMode() {
+    public void changeToSportMode() {
         mode = GearboxModeFactory.Mode.SPORT;
         buildGearboxMode();
     }
 
-    void changeToEcoMode() {
+    public void changeToEcoMode() {
         mode = GearboxModeFactory.Mode.ECO;
         buildGearboxMode();
     }
 
-    void changeToComfort() {
+    public void changeToComfort() {
         mode = GearboxModeFactory.Mode.COMFORT;
         buildGearboxMode();
     }
 
-    void reduceGear() {
+    public void reduceGear() {
         gearbox.reduceGear();
     }
 
-    void riseGear() {
+    public void riseGear() {
         gearbox.riseGear();
     }
 
-    void handleGas(Threshold threshold) {
+    public void handleGas(Threshold threshold) {
         var currentRpm = externalSystem.getCurrentRpm();
         var actions = gearboxMode.handleNewRpm(currentRpm, threshold);
         actions.apply(gearbox);

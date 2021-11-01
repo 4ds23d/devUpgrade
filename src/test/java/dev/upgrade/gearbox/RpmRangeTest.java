@@ -1,4 +1,4 @@
-package dev.upgrade;
+package dev.upgrade.gearbox;
 
 import java.util.stream.Stream;
 
@@ -37,18 +37,18 @@ class RpmRangeTest {
         // when & then
         switch (expected) {
             case IS_ABOVE:
-                assertThat(range.isAbove(test)).isTrue();
-                assertThat(range.isBelow(test)).isFalse();
+                assertThat(range.isRpmAboveRange(test)).isTrue();
+                assertThat(range.isRpmBelowRange(test)).isFalse();
                 assertThat(range.isInRange(test)).isFalse();
                 break;
             case IS_BELOW:
-                assertThat(range.isAbove(test)).isFalse();
-                assertThat(range.isBelow(test)).isTrue();
+                assertThat(range.isRpmAboveRange(test)).isFalse();
+                assertThat(range.isRpmBelowRange(test)).isTrue();
                 assertThat(range.isInRange(test)).isFalse();
                 break;
             case IS_IN_RANGE:
-                assertThat(range.isAbove(test)).isFalse();
-                assertThat(range.isBelow(test)).isFalse();
+                assertThat(range.isRpmAboveRange(test)).isFalse();
+                assertThat(range.isRpmBelowRange(test)).isFalse();
                 assertThat(range.isInRange(test)).isTrue();
                 break;
         }
