@@ -32,6 +32,19 @@ class GearActionTest {
     }
 
     @Test
+    @DisplayName("do nothing")
+    void doNothing() {
+        // given
+        var action = GearAction.nothing();
+
+        // when
+        action.apply(gearboxAcl);
+
+        // then
+        verifyNoMoreInteractions(gearboxAcl);
+    }
+
+    @Test
     @DisplayName("rise gear")
     void riseGear() {
         // given
