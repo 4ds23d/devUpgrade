@@ -1,6 +1,7 @@
 package dev.upgrade.gearbox;
 
 import dev.upgrade.characteristics.Characteristics;
+import dev.upgrade.shared.RpmFactor;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor

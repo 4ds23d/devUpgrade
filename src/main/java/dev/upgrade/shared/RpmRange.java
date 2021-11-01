@@ -1,4 +1,4 @@
-package dev.upgrade.gearbox;
+package dev.upgrade.shared;
 
 public class RpmRange {
     private Rpm low;
@@ -13,15 +13,15 @@ public class RpmRange {
         this.high = high;
     }
 
-    boolean isRpmBelowRange(Rpm rpm) {
+    public boolean isRpmBelowRange(Rpm rpm) {
         return rpm.isLowerThan(low);
     }
 
-    boolean isRpmAboveRange(Rpm rpm) {
+    public boolean isRpmAboveRange(Rpm rpm) {
         return rpm.isGreaterThan(high);
     }
 
-    boolean isInRange(Rpm rpm) {
+    public boolean isInRange(Rpm rpm) {
         return !isRpmBelowRange(rpm) && !isRpmAboveRange(rpm);
     }
 }

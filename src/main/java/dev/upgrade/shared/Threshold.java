@@ -1,4 +1,4 @@
-package dev.upgrade.gearbox;
+package dev.upgrade.shared;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -16,7 +16,7 @@ public class Threshold {
         this.threshold = threshold;
     }
 
-    boolean isGreaterThan(Threshold threshold) {
+    public boolean isGreaterThan(Threshold threshold) {
         return this.threshold > threshold.threshold;
     }
 }

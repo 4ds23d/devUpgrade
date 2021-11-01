@@ -1,4 +1,4 @@
-package dev.upgrade.gearbox;
+package dev.upgrade.shared;
 
 import java.util.stream.Stream;
 

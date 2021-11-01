@@ -1,6 +1,10 @@
 package dev.upgrade.gearbox;
 
 import dev.upgrade.characteristics.ComfortCharacteristics;
+import dev.upgrade.shared.Kickdown;
+import dev.upgrade.shared.Rpm;
+import dev.upgrade.shared.RpmRange;
+import dev.upgrade.shared.Threshold;
 
 class ComfortMode implements GearboxMode {
     private final Kickdown kickdown;

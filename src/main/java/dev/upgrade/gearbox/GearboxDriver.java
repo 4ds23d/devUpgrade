@@ -3,6 +3,7 @@ package dev.upgrade.gearbox;
 import dev.upgrade.acl.ExternalSystemAcl;
 import dev.upgrade.acl.GearboxAcl;
 import dev.upgrade.characteristics.Characteristics;
+import dev.upgrade.shared.Threshold;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor

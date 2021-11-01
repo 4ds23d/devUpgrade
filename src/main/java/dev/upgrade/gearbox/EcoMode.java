@@ -1,6 +1,9 @@
 package dev.upgrade.gearbox;
 
 import dev.upgrade.characteristics.EcoCharacteristics;
+import dev.upgrade.shared.Rpm;
+import dev.upgrade.shared.RpmRange;
+import dev.upgrade.shared.Threshold;
 
 class EcoMode implements GearboxMode {
     private final RpmRange neutralRpmRange;

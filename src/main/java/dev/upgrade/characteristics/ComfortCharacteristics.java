@@ -1,8 +1,8 @@
 package dev.upgrade.characteristics;
 
-import dev.upgrade.gearbox.Rpm;
-import dev.upgrade.gearbox.RpmFactor;
-import dev.upgrade.gearbox.Threshold;
+import dev.upgrade.shared.Rpm;
+import dev.upgrade.shared.RpmFactor;
+import dev.upgrade.shared.Threshold;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.With;
