@@ -25,11 +25,11 @@ class ComfortModeTest {
 
     private static Stream<Arguments> dataNewRpmLvl1() {
         return Stream.of(
-                Arguments.of(new Rpm(2501), new Threshold(0), GearAction.riseGear()),
+                Arguments.of(new Rpm(2501), new Threshold(0), GearAction.increaseGear()),
                 Arguments.of(new Rpm(2499), new Threshold(0), GearAction.nothing()),
                 Arguments.of(new Rpm(1001), new Threshold(0), GearAction.nothing()),
                 Arguments.of(new Rpm(999), new Threshold(0), GearAction.reduce()),
-                Arguments.of(new Rpm(11000), new Threshold(0), GearAction.riseGear()),
+                Arguments.of(new Rpm(11000), new Threshold(0), GearAction.increaseGear()),
                 Arguments.of(new Rpm(0), new Threshold(0), GearAction.reduce()),
 
                 Arguments.of(new Rpm(1001), new Threshold(0.51), GearAction.reduce()),
@@ -40,7 +40,7 @@ class ComfortModeTest {
 
     private static Stream<Arguments> dataNewRpmLvl2() {
         return Stream.of(
-                Arguments.of(new Rpm(3251), new Threshold(0), GearAction.riseGear()),
+                Arguments.of(new Rpm(3251), new Threshold(0), GearAction.increaseGear()),
                 Arguments.of(new Rpm(3250), new Threshold(0), GearAction.nothing()),
                 Arguments.of(new Rpm(1300), new Threshold(0), GearAction.nothing()),
                 Arguments.of(new Rpm(1299), new Threshold(0), GearAction.reduce()),

@@ -18,11 +18,11 @@ class EcoModeTest {
 
     private static Stream<Arguments> dataNewRpmLvl1() {
         return Stream.of(
-                Arguments.of(new Rpm(2001), GearAction.riseGear()),
+                Arguments.of(new Rpm(2001), GearAction.increaseGear()),
                 Arguments.of(new Rpm(1999), GearAction.nothing()),
                 Arguments.of(new Rpm(1001), GearAction.nothing()),
                 Arguments.of(new Rpm(999), GearAction.reduce()),
-                Arguments.of(new Rpm(11000), GearAction.riseGear()),
+                Arguments.of(new Rpm(11000), GearAction.increaseGear()),
                 Arguments.of(new Rpm(0), GearAction.reduce())
         );
     }
@@ -43,11 +43,11 @@ class EcoModeTest {
 
     private static Stream<Arguments> dataNewRpmLvl2() {
         return Stream.of(
-                Arguments.of(new Rpm(2601), GearAction.riseGear()),
+                Arguments.of(new Rpm(2601), GearAction.increaseGear()),
                 Arguments.of(new Rpm(2600), GearAction.nothing()),
                 Arguments.of(new Rpm(1300), GearAction.nothing()),
                 Arguments.of(new Rpm(1299), GearAction.reduce()),
-                Arguments.of(new Rpm(11000), GearAction.riseGear()),
+                Arguments.of(new Rpm(11000), GearAction.increaseGear()),
                 Arguments.of(new Rpm(0), GearAction.reduce())
         );
     }

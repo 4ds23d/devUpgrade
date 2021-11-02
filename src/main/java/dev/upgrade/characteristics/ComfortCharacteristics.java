@@ -12,13 +12,13 @@ import lombok.With;
 public class ComfortCharacteristics {
     private final Rpm reduceGearWhileAccelerating;
     private final Threshold thresholdSoThatIsNoKickdown;
-    private final Rpm riseGearWhileAccelerating;
+    private final Rpm increaseGearWhileAccelerating;
     private final Rpm reduceGearWhileKickdown;
     private final Rpm reduceGearWhileBreaking;
 
     public ComfortCharacteristics multiplyByFactor(RpmFactor rpmFactor) {
         return withReduceGearWhileAccelerating(reduceGearWhileAccelerating.multiplyByFactor(rpmFactor))
-                .withRiseGearWhileAccelerating(riseGearWhileAccelerating.multiplyByFactor(rpmFactor))
+                .withIncreaseGearWhileAccelerating(increaseGearWhileAccelerating.multiplyByFactor(rpmFactor))
                 .withReduceGearWhileKickdown(reduceGearWhileKickdown.multiplyByFactor(rpmFactor))
                 .withReduceGearWhileBreaking(reduceGearWhileBreaking.multiplyByFactor(rpmFactor));
     }

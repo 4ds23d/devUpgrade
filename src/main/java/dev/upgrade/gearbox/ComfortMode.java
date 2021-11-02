@@ -12,7 +12,7 @@ class ComfortMode implements GearboxMode {
 
     ComfortMode(ComfortCharacteristics characteristics) {
         this.neutralRpmRange = new RpmRange(characteristics.getReduceGearWhileAccelerating(),
-                                            characteristics.getRiseGearWhileAccelerating());
+                                            characteristics.getIncreaseGearWhileAccelerating());
         this.kickdown = new Kickdown(characteristics.getThresholdSoThatIsNoKickdown());
     }
 
@@ -22,7 +22,7 @@ class ComfortMode implements GearboxMode {
             return GearAction.reduce();
         } else {
             if (neutralRpmRange.isRpmAboveRange(currentRpm)) {
-                return GearAction.riseGear();
+                return GearAction.increaseGear();
             } else if (neutralRpmRange.isRpmBelowRange(currentRpm)) {
                 return GearAction.reduce();
             }

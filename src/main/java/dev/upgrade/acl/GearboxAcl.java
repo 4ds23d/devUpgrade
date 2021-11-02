@@ -40,7 +40,7 @@ public class GearboxAcl {
         }
     }
 
-    public void riseGear() {
+    public void increaseGear() {
         if (getState() != State.DRIVE) {
             return;
         }

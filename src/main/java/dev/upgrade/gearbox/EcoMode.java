@@ -10,13 +10,13 @@ class EcoMode implements GearboxMode {
 
     EcoMode(EcoCharacteristics ecoCharacteristics) {
         this.neutralRpmRange = new RpmRange(ecoCharacteristics.getReduceGearWhileAccelerating(),
-                                            ecoCharacteristics.getRiseGearWhileAccelerating());
+                                            ecoCharacteristics.getIncreaseGearWhileAccelerating());
     }
 
     @Override
     public GearAction handleNewRpm(Rpm currentRpm, Threshold threshold) {
         if (neutralRpmRange.isRpmAboveRange(currentRpm)) {
-            return GearAction.riseGear();
+            return GearAction.increaseGear();
         } else if (neutralRpmRange.isRpmBelowRange(currentRpm)) {
             return GearAction.reduce();
         }

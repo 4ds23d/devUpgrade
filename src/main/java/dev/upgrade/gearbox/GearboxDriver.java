@@ -57,8 +57,8 @@ public class GearboxDriver {
         gearbox.reduceGear();
     }
 
-    public void riseGear() {
-        gearbox.riseGear();
+    public void increaseGear() {
+        gearbox.increaseGear();
     }
 
     public void handleGas(Threshold threshold) {

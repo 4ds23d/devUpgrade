@@ -45,8 +45,8 @@ class GearboxAclTest {
     }
 
     @Test
-    @DisplayName("should rise gear")
-    void shouldRiseGear() {
+    @DisplayName("should increase gear")
+    void shouldIncreaseGear() {
         // given
         when(gearbox.getState()).thenReturn(1);
         when(gearbox.getCurrentGear()).thenReturn(1);
@@ -54,15 +54,15 @@ class GearboxAclTest {
         var gearboxAcl = withGearboxAcl();
 
         // when
-        gearboxAcl.riseGear();
+        gearboxAcl.increaseGear();
 
         // then
         verify(gearbox, times(1)).setCurrentGear(2);
     }
 
     @Test
-    @DisplayName("should not rise a gear")
-    void shouldNotRiseAGear() {
+    @DisplayName("should not increase a gear")
+    void shouldNotIncreaseAGear() {
         // given
         when(gearbox.getState()).thenReturn(1);
         when(gearbox.getCurrentGear()).thenReturn(3);
@@ -70,7 +70,7 @@ class GearboxAclTest {
         var gearboxAcl = withGearboxAcl();
 
         // when
-        gearboxAcl.riseGear();
+        gearboxAcl.increaseGear();
 
         // then
         verify(gearbox, times(0)).setCurrentGear(anyInt());

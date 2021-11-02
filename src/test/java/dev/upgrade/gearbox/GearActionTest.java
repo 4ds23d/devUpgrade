@@ -45,16 +45,16 @@ class GearActionTest {
     }
 
     @Test
-    @DisplayName("rise gear")
-    void riseGear() {
+    @DisplayName("increase gear")
+    void increaseGear() {
         // given
-        var action = GearAction.riseGear();
+        var action = GearAction.increaseGear();
 
         // when
         action.apply(gearboxAcl);
 
         // then
-        verify(gearboxAcl, times(1)).riseGear();
+        verify(gearboxAcl, times(1)).increaseGear();
         verifyNoMoreInteractions(gearboxAcl);
     }
 

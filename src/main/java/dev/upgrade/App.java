@@ -16,6 +16,6 @@ public class App {
         gearbox.setMaxDrive(6);
 
         var driver = new GearboxDriver(new ExternalSystemAcl(), new GearboxAcl(gearbox));
-        driver.riseGear();
+        driver.increaseGear();
     }
 }

@@ -9,17 +9,17 @@ import lombok.Data;
 class GearAction {
     private final List<Type> actions;
     enum Type {
-        RISE,
-        REDUCE
+        INCREASE_GEAR,
+        REDUCE_GEAR
     }
 
     void apply(GearboxAcl gearboxAcl) {
         actions.forEach(action -> {
             switch (action) {
-                case RISE:
-                    gearboxAcl.riseGear();
+                case INCREASE_GEAR:
+                    gearboxAcl.increaseGear();
                     break;
-                case REDUCE:
+                case REDUCE_GEAR:
                     gearboxAcl.reduceGear();
                     break;
             }
@@ -27,15 +27,15 @@ class GearAction {
     }
 
     static GearAction doubleReduce() {
-        return new GearAction(List.of(Type.REDUCE, Type.REDUCE));
+        return new GearAction(List.of(Type.REDUCE_GEAR, Type.REDUCE_GEAR));
     }
 
     static GearAction reduce() {
-        return new GearAction(List.of(Type.REDUCE));
+        return new GearAction(List.of(Type.REDUCE_GEAR));
     }
 
-    static GearAction riseGear() {
-        return new GearAction(List.of(Type.RISE));
+    static GearAction increaseGear() {
+        return new GearAction(List.of(Type.INCREASE_GEAR));
     }
 
     static GearAction nothing() {

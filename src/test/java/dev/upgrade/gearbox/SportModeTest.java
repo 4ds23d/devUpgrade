@@ -18,7 +18,7 @@ class SportModeTest {
 
     private static Stream<Arguments> dataNewRpmLvl1() {
         return Stream.of(
-                Arguments.of(new Rpm(5001), new Threshold(0), GearAction.riseGear()),
+                Arguments.of(new Rpm(5001), new Threshold(0), GearAction.increaseGear()),
                 Arguments.of(new Rpm(4999), new Threshold(0), GearAction.nothing()),
                 Arguments.of(new Rpm(3000), new Threshold(0), GearAction.nothing()),
                 Arguments.of(new Rpm(1501), new Threshold(0), GearAction.nothing()),
@@ -49,7 +49,7 @@ class SportModeTest {
 
     private static Stream<Arguments> dataNewRpmLvl2() {
         return Stream.of(
-                Arguments.of(new Rpm(6501), new Threshold(0), GearAction.riseGear()),
+                Arguments.of(new Rpm(6501), new Threshold(0), GearAction.increaseGear()),
                 Arguments.of(new Rpm(6500), new Threshold(0), GearAction.nothing()),
                 Arguments.of(new Rpm(3900), new Threshold(0), GearAction.nothing()),
                 Arguments.of(new Rpm(1950), new Threshold(0), GearAction.nothing()),

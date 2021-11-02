@@ -15,7 +15,7 @@ class SportMode implements GearboxMode {
         this.lightKickdown = new Kickdown(characteristics.getThresholdLightKickdown());
         this.heavyKickdown = new Kickdown(characteristics.getThresholdHeavyKickdown());
         this.neutralRpmRange = new RpmRange(characteristics.getReduceGearWhileSlowlyAccelerating(),
-                                            characteristics.getRiseGearWhileAccelerating());
+                                            characteristics.getIncreaseGearWhileAccelerating());
     }
 
     @Override
@@ -26,7 +26,7 @@ class SportMode implements GearboxMode {
             return GearAction.reduce();
         } else {
             if (neutralRpmRange.isRpmAboveRange(currentRpm)) {
-                return GearAction.riseGear();
+                return GearAction.increaseGear();
             } else if (neutralRpmRange.isRpmBelowRange(currentRpm)) {
                 return GearAction.reduce();
             }
